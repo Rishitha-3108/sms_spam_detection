@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Introduction Video</title>
+  <style>
+    body.index {
+      background-image: url("{{ url_for('static', filename='css/background_image.jpg') }}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    /* Style for the button */
+    button {
+      background-color: #3498db;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="index">
+  <video controls autoplay onended="openNextFrame()">
+    <source src="{{ url_for('static', filename='start_video.mp4') }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Add a button in the middle to navigate to index2.html -->
+  <button onclick="navigateToIndex2()">Enter</button>
+
+  <script>
+    function openNextFrame() {
+      // Redirect to the next page (e.g., index2.html) when the video ends
+      window.location.href = "/index2";
+    }
+
+    // JavaScript function to navigate to index2.html when the button is clicked
+    function navigateToIndex2() {
+      window.location.href = "/index2";
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+

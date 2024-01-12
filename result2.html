@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SMS Spam Detection Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('/static/back.jpg') center center no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .image-container {
+            margin-top: 20px;
+        }
+
+        img {
+            width: 100%; /* Adjust this based on your design */
+            max-width: 400px; /* Adjust this based on your design */
+            border-radius: 8px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            text-decoration: none;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SMS Spam Detection Result</h1>
+        <p>Prediction: {{ prediction }}</p>
+        
+        <div class="image-container">
+            {% if prediction == "Spam" %}
+                <img src="{{ url_for('static', filename='spam2.png') }}" alt="Spam Image">
+            {% elif prediction == "Not spam" %}
+                <img src="{{ url_for('static', filename='s.png') }}" alt="Ham Image">
+            {% endif %}
+        </div>
+        
+        <div class="button-container">
+            <button onclick="goBack()">Go Back</button>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.location.href = "/index2";
+        }
+    </script>
+</body>
+</html>
